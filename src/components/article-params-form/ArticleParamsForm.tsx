@@ -19,25 +19,19 @@ import {
 import { Text } from 'src/ui/text';
 
 type ArticleParamsFormProps = {
-	isOpen: boolean;
-	setIsOpen: (value: boolean) => void;
 	onApply: (props: ArticleStateType) => void;
 };
 
-export const ArticleParamsForm = ({
-	isOpen,
-	setIsOpen,
-	onApply,
-}: ArticleParamsFormProps) => {
+export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [formState, setFormState] =
 		useState<ArticleStateType>(defaultArticleState);
 	const divRef = useRef<HTMLDivElement>(null);
 	useOutsideClickClose({
-		isOpen,
+		isOpen: isMenuOpen,
 		rootRef: divRef,
 		onClose: undefined,
-		onChange: () => setIsOpen(false),
+		onChange: () => setIsMenuOpen(false),
 	});
 	const handleApply = () => {
 		onApply(formState);
