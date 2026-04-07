@@ -18,10 +18,6 @@ import {
 } from 'src/constants/articleProps';
 import { Text } from 'src/ui/text';
 
-type ArticleParamsFormProps = {
-	onApply: (props: ArticleStateType) => void;
-};
-
 export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [formState, setFormState] =
